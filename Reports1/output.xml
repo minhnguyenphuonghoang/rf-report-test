@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.4 (Python 3.7.4 on win32)" generated="20191206 11:21:30.266">
+<suite id="s1" name="Test Suites" source="C:\Users\minhn\Documents\automation-test\Test_Suites">
+<kw name="Collect test data" library="common_keywords" type="setup">
+<kw name="Read Share Data" library="data_reader">
+<doc>Get all data from spread sheet file (*.csv only)</doc>
+<arguments>
+<arg>${share_data_messages}</arg>
+<arg>\t</arg>
+</arguments>
+<assign>
+<var>${g_messages}</var>
+</assign>
+<msg timestamp="20191206 11:21:30.980" level="INFO">0 Login_LoginFailed []
+1 Sorry, but your email or password doesn't match our records. []
+0 Login_AccountLocked []
+1 Sorry, your account was locked for too many failed password attempts. Please wait 15 more minutes or contact your administrator for assistance. []
+0 Accounts_DeleteTagsSuccessfully []
+1 We are deleting your tag, this may take a few minutes []
+0 Campaigns_EnableAStepSuccessfully []
+1 Your edits were saved. Don't forget to Apply Edits. []
+0 Campaigns_DisableAStepSuccessfully []
+1 Step is disabled. You must Re-Launch for this to take affect. []
+0 Email_StatisticsLabels []
+1 Targeted []
+2 Suppressed []
+Targeted Suppressed
+3 Delivered ['Targeted']
+Suppressed Delivered
+4 Bounced ['Targeted', 'Suppressed']
+Delivered Bounced
+5 Opened ['Targeted', 'Suppressed', 'Delivered']
+Bounced Opened
+6 Clicked ['Targeted', 'Suppressed', 'Delivered', 'Bounced']
+Opened Clicked
+7 Unsubscribed ['Targeted', 'Suppressed', 'Delivered', 'Bounced', 'Opened']
+Clicked Unsubscribed
+0 FormSubmitSuccess []
+1 Thanks for your response. Someone will get back to you soon. []
+0 FormBuilder_DuplicatedComponent []
+1 You already have an &lt;component&gt; Field on this form. Use a text field for more data. []</msg>
+<msg timestamp="20191206 11:21:30.980" level="INFO">${g_messages} = {'Login_LoginFailed': "Sorry, but your email or password doesn't match our records.", 'Login_AccountLocked': 'Sorry, your account was locked for too many failed password attempts. Please wait 15 more ...</msg>
+<status status="PASS" starttime="20191206 11:21:30.979" endtime="20191206 11:21:30.980"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${g_messages}</arg>
+</arguments>
+<msg timestamp="20191206 11:21:30.981" level="INFO">${g_messages} = {'Login_LoginFailed': "Sorry, but your email or password doesn't match our records.", 'Login_AccountLocked': 'Sorry, your account was locked for too many failed password attempts. Please wait 15 more ...</msg>
+<status status="PASS" starttime="20191206 11:21:30.981" endtime="20191206 11:21:30.981"></status>
+</kw>
+<kw name="Read Test Data" library="data_reader">
+<doc>Get all data from spread sheet file (*.csv only)</doc>
+<arguments>
+<arg>${share_data_accounts}</arg>
+<arg>\t</arg>
+</arguments>
+<assign>
+<var>${g_accounts}</var>
+</assign>
+<msg timestamp="20191206 11:21:30.982" level="INFO">${g_accounts} = {'ValidAccounts': {'Username': 'user@fuse-auto-test.com', 'Password': 's6WQRy5CKbfDU23', 'Notes': 'Used for login'}, 'ValidEmail01': {'Username': 'fuseautotest07@gmail.com', 'Password': 'asdf@1234'}, ...</msg>
+<status status="PASS" starttime="20191206 11:21:30.981" endtime="20191206 11:21:30.982"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${g_accounts}</arg>
+</arguments>
+<msg timestamp="20191206 11:21:30.983" level="INFO">${g_accounts} = {'ValidAccounts': {'Username': 'user@fuse-auto-test.com', 'Password': 's6WQRy5CKbfDU23', 'Notes': 'Used for login'}, 'ValidEmail01': {'Username': 'fuseautotest07@gmail.com', 'Password': 'asdf@1234'}, ...</msg>
+<status status="PASS" starttime="20191206 11:21:30.982" endtime="20191206 11:21:30.983"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${g_user_email}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${g_user_email}</arg>
+</arguments>
+<status status="PASS" starttime="20191206 11:21:30.984" endtime="20191206 11:21:30.984"></status>
+</kw>
+<msg timestamp="20191206 11:21:30.984" level="INFO">${result} = True</msg>
+<status status="PASS" starttime="20191206 11:21:30.983" endtime="20191206 11:21:30.985"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>set global variable</arg>
+<arg>${g_accounts['ValidAccounts']['Username']}</arg>
+<arg>${g_user_email}</arg>
+</arguments>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${g_accounts['ValidAccounts']['Username']}</arg>
+<arg>${g_user_email}</arg>
+</arguments>
+<msg timestamp="20191206 11:21:30.986" level="INFO">${g_accounts['ValidAccounts']['Username']} = minh.nguyen+stagingtest@fmgsuite.com</msg>
+<status status="PASS" starttime="20191206 11:21:30.986" endtime="20191206 11:21:30.986"></status>
+</kw>
+<status status="PASS" starttime="20191206 11:21:30.985" endtime="20191206 11:21:30.986"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>variable should exist</arg>
+<arg>${g_user_password}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Variable Should Exist" library="BuiltIn">
+<doc>Fails unless the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${g_user_password}</arg>
+</arguments>
+<status status="PASS" starttime="20191206 11:21:30.987" endtime="20191206 11:21:30.987"></status>
+</kw>
+<msg timestamp="20191206 11:21:30.987" level="INFO">${result} = True</msg>
+<status status="PASS" starttime="20191206 11:21:30.987" endtime="20191206 11:21:30.988"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>set global variable</arg>
+<arg>${g_accounts['ValidAccounts']['Password']}</arg>
+<arg>${g_user_password}</arg>
+</arguments>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${g_accounts['ValidAccounts']['Password']}</arg>
+<arg>${g_user_password}</arg>
+</arguments>
+<msg timestamp="20191206 11:21:30.989" level="INFO">${g_accounts['ValidAccounts']['Password']} = s6WQRy5CKbfDU23</msg>
+<status status="PASS" starttime="20191206 11:21:30.988" endtime="20191206 11:21:30.989"></status>
+</kw>
+<status status="PASS" starttime="20191206 11:21:30.988" endtime="20191206 11:21:30.989"></status>
+</kw>
+<status status="PASS" starttime="20191206 11:21:30.978" endtime="20191206 11:21:30.989"></status>
+</kw>
+<suite id="s1-s1" name="Test" source="C:\Users\minhn\Documents\automation-test\Test_Suites\test.robot">
+<test id="s1-s1-t1" name="test case 001">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>0.1</arg>
+</arguments>
+<msg timestamp="20191206 11:21:31.093" level="INFO">Slept 100 milliseconds</msg>
+<status status="PASS" starttime="20191206 11:21:30.991" endtime="20191206 11:21:31.093"></status>
+</kw>
+<kw name="Keyword level 1">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>level 1</arg>
+</arguments>
+<msg timestamp="20191206 11:21:31.094" level="INFO">level 1</msg>
+<status status="PASS" starttime="20191206 11:21:31.094" endtime="20191206 11:21:31.094"></status>
+</kw>
+<kw name="keyword level 2">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>level 2</arg>
+</arguments>
+<msg timestamp="20191206 11:21:31.095" level="INFO">level 2</msg>
+<status status="PASS" starttime="20191206 11:21:31.094" endtime="20191206 11:21:31.095"></status>
+</kw>
+<kw name="Keyword Level 3">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>level3</arg>
+</arguments>
+<msg timestamp="20191206 11:21:31.095" level="INFO">level3</msg>
+<status status="PASS" starttime="20191206 11:21:31.095" endtime="20191206 11:21:31.096"></status>
+</kw>
+<status status="PASS" starttime="20191206 11:21:31.095" endtime="20191206 11:21:31.096"></status>
+</kw>
+<status status="PASS" starttime="20191206 11:21:31.094" endtime="20191206 11:21:31.096"></status>
+</kw>
+<status status="PASS" starttime="20191206 11:21:31.093" endtime="20191206 11:21:31.096"></status>
+</kw>
+<status status="PASS" starttime="20191206 11:21:30.991" endtime="20191206 11:21:31.096" critical="yes"></status>
+</test>
+<test id="s1-s1-t2" name="test case 003">
+<kw name="Fail" library="BuiltIn">
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<arguments>
+<arg>this is the message</arg>
+</arguments>
+<msg timestamp="20191206 11:21:31.097" level="FAIL">this is the message</msg>
+<status status="FAIL" starttime="20191206 11:21:31.097" endtime="20191206 11:21:31.097"></status>
+</kw>
+<status status="FAIL" starttime="20191206 11:21:31.097" endtime="20191206 11:21:31.098" critical="yes">this is the message</status>
+</test>
+<status status="FAIL" starttime="20191206 11:21:30.989" endtime="20191206 11:21:31.098"></status>
+</suite>
+<status status="FAIL" starttime="20191206 11:21:30.271" endtime="20191206 11:21:31.099"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1">Critical Tests</stat>
+<stat pass="1" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="1" id="s1" name="Test Suites">Test Suites</stat>
+<stat pass="1" fail="1" id="s1-s1" name="Test">Test Suites.Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
